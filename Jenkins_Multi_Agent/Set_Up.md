@@ -106,8 +106,8 @@ http://master-ec2-ip:8080
 |-------|--------|
 | Kind | SSH Username with private key |
 | Scope | Global |
-| ID | jenkins-agent-key |
-| Username | Linux Username  |
+| ID | <ANY ID NAME> |
+| Username | MAchine Name  |
 | Private key | Paste id_ed25519 (private key) |
 | Passphrase | leave empty |
 
@@ -128,7 +128,7 @@ http://master-ec2-ip:8080
 | Usage | Use as much as possible |
 | Launch Method | Launch via SSH |
 | Host | agent Public  IP |
-| Credentials | jenkins-agent-key |
+| Credentials | <ANY NAME > |
 | Host Key Strategy | Non-verifying |
 
 Click **Save**.
