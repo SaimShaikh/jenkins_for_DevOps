@@ -1,6 +1,5 @@
-# Jenkins Multi-Agent Setup - Complete Guide
+# Jenkins Multi-Agent 
 
-A comprehensive guide to setting up and managing Jenkins distributed architecture with multiple agents for scalable CI/CD pipelines.
 
 ---
 
