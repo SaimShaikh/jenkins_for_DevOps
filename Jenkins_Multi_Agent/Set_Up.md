@@ -65,6 +65,7 @@ sudo apt install openjdk-11-jdk -y
 ---
 
 # 🔐 Step 3: SSH Key Setup (Master → Agent)
+<img width="2581" height="1196" alt="image" src="https://github.com/user-attachments/assets/cc5c6d7a-6169-47ae-b517-b36dfd9fa3f6" />
 
 ## Generate SSH Keys on Master
 ```bash
@@ -131,6 +132,8 @@ http://master-ec2-ip:8080
 | Host Key Strategy | Non-verifying |
 
 Click **Save**.
+
+<img width="1910" height="773" alt="image" src="https://github.com/user-attachments/assets/e4bcebae-ad7d-49f9-8471-47eea6e1b6b9" />
 
 ---
 
