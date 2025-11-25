@@ -13,23 +13,23 @@
 
 **What Happens:**
 ```
-❌ Junior Dev gets full Jenkins access → Accidentally deletes production pipeline
-❌ QA team member gets full access → Configures job, breaks build for all teams
-❌ Offshore contractor gets full access → Sees sensitive credentials
-❌ Support team gets no access → Can't even view build logs
-❌ Manager has full admin access → Accidentally changes critical settings
+- ❌ Junior Dev gets full Jenkins access → Accidentally deletes production pipeline
+- ❌ QA team member gets full access → Configures job, breaks build for all teams
+- ❌ Offshore contractor gets full access → Sees sensitive credentials
+- ❌ Support team gets no access → Can't even view build logs
+- ❌ Manager has full admin access → Accidentally changes critical settings
 ```
 
 ### Solution: With RBAC
 
 **Same Company, Now with Roles:**
 ```
-✅ Junior Dev Role: Can BUILD and VIEW dev/test jobs only. Cannot DELETE.
-✅ QA Role: Can BUILD and CONFIGURE QA jobs. Cannot access PROD jobs.
-✅ Offshore Contractor: Can only VIEW and BUILD approved jobs. Cannot configure.
-✅ Support Role: Can VIEW build logs and TRIGGER reruns. Cannot configure.
-✅ Manager Role: Can VIEW all jobs but NOT configure. Cannot delete.
-✅ Admin Role: Full access to everything (only 1-2 people need this).
+- ✅ Junior Dev Role: Can BUILD and VIEW dev/test jobs only. Cannot DELETE.
+- ✅ QA Role: Can BUILD and CONFIGURE QA jobs. Cannot access PROD jobs.
+- ✅ Offshore Contractor: Can only VIEW and BUILD approved jobs. Cannot configure.
+- ✅ Support Role: Can VIEW build logs and TRIGGER reruns. Cannot configure.
+- ✅ Manager Role: Can VIEW all jobs but NOT configure. Cannot delete.
+- ✅ Admin Role: Full access to everything (only 1-2 people need this).
 
 Result:
 - Everyone has exactly what they need
@@ -70,12 +70,12 @@ Jenkins with RBAC:
 
 ### Problems Without RBAC:
 
-❌ **Security Risk** - Anyone with access can delete pipelines or steal credentials
-❌ **No Accountability** - Can't track who changed what
-❌ **Mistakes Happen** - Junior dev accidentally breaks production
-❌ **Compliance Issues** - Can't prove access control for audits
-❌ **Team Silos** - Can't safely give contractors/offshore teams access
-❌ **Scalability Problem** - 100 people? Everyone has admin or nobody?
+- ❌ **Security Risk** - Anyone with access can delete pipelines or steal credentials
+- ❌ **No Accountability** - Can't track who changed what
+- ❌ **Mistakes Happen** - Junior dev accidentally breaks production
+- ❌ **Compliance Issues** - Can't prove access control for audits
+- ❌ **Team Silos** - Can't safely give contractors/offshore teams access
+- ❌ **Scalability Problem** - 100 people? Everyone has admin or nobody?
 
 ### Real Impacts:
 
