@@ -1,26 +1,5 @@
 
-# Jenkins UI - Complete Guide
-
-A comprehensive guide to understanding Jenkins User Interface (UI) components, job types, and build configuration options.
-
----
-
-## 📚 Table of Contents
-
-1. [Jenkins Main Dashboard](#jenkins-main-dashboard)
-2. [Jobs & Projects](#jobs--projects)
-3. [Plugins](#plugins)
-4. [Free Style Projects](#free-style-projects)
-5. [Pipeline](#pipeline)
-6. [Multi Configuration Projects](#multi-configuration-projects)
-7. [Folders](#folders)
-8. [Multi-Branch Pipeline](#multi-branch-pipeline)
-9. [Organization Folder](#organization-folder)
-10. [Free Style Project Configuration](#free-style-project-configuration)
-11. [Build Triggers](#build-triggers)
-12. [Build Environment](#build-environment)
-13. [Build Steps](#build-steps)
-14. [Post-Build Actions](#post-build-actions)
+# Jenkins UI 
 
 ---
 
@@ -28,7 +7,7 @@ A comprehensive guide to understanding Jenkins User Interface (UI) components, j
 
 ### What is the Jenkins Dashboard?
 
-The Jenkins dashboard is your **main control center** - the first page you see after logging into Jenkins[44].
+The Jenkins dashboard is your **main control center** - the first page you see after logging into Jenkins.
 
 ### What You'll See:
 
@@ -80,7 +59,7 @@ A **Job** (also called a Project) is the **smallest unit of work in Jenkins**[44
 
 ### What are Jenkins Plugins?
 
-**Plugins** are **add-ons that extend Jenkins functionality**. They're like apps for Jenkins that add new capabilities[50][52].
+**Plugins** are **add-ons that extend Jenkins functionality**. They're like apps for Jenkins that add new capabilities.
 
 ### Why Use Plugins?
 
@@ -120,7 +99,7 @@ A **Job** (also called a Project) is the **smallest unit of work in Jenkins**[44
 
 ### What is a Freestyle Project?
 
-A **Freestyle Project** is the **simplest and most flexible** job type in Jenkins[42][45]. You configure everything through the **web UI without writing code**.
+A **Freestyle Project** is the **simplest and most flexible** job type in Jenkins. You configure everything through the **web UI without writing code**.
 
 ### Why Use Freestyle?
 
@@ -163,7 +142,7 @@ A **Freestyle Project** is the **simplest and most flexible** job type in Jenkin
 
 ### What is a Jenkins Pipeline?
 
-A **Pipeline** is a **way to define your entire CI/CD workflow as code** (in a file called `Jenkinsfile`)[14][46].
+A **Pipeline** is a **way to define your entire CI/CD workflow as code** (in a file called `Jenkinsfile`).
 
 ### Why Use Pipeline?
 
@@ -235,7 +214,7 @@ pipeline {
 
 ### What is a Multi-Configuration Project?
 
-A **Multi-Configuration Project** (also called **Matrix Project**) runs the **same build with different configurations** automatically[51][54].
+A **Multi-Configuration Project** (also called **Matrix Project**) runs the **same build with different configurations** automatically.
 
 ### Why Use Multi-Configuration?
 
@@ -275,7 +254,7 @@ Without Matrix Project: **9 separate jobs** to maintain manually
 
 ### What are Folders?
 
-**Folders** let you **organize jobs hierarchically** like a file system[70][73].
+**Folders** let you **organize jobs hierarchically** like a file system.
 
 ### Why Use Folders?
 
@@ -322,7 +301,7 @@ Jenkins
 
 ### What is Multi-Branch Pipeline?
 
-A **Multi-Branch Pipeline** **automatically creates separate jobs for each branch** in your Git repository[24][50].
+A **Multi-Branch Pipeline** **automatically creates separate jobs for each branch** in your Git repository.
 
 ### Why Use Multi-Branch?
 
@@ -359,7 +338,7 @@ A **Multi-Branch Pipeline** **automatically creates separate jobs for each branc
 
 ### What is Organization Folder?
 
-An **Organization Folder** **scans an entire GitHub Organization or Bitbucket Team** and **automatically creates Multibranch Pipeline jobs** for each repository[24][53].
+An **Organization Folder** **scans an entire GitHub Organization or Bitbucket Team** and **automatically creates Multibranch Pipeline jobs** for each repository.
 
 ### Why Use Organization Folder?
 
@@ -455,7 +434,7 @@ Available through plugins
 
 #### Trigger builds remotely
 
-**What**: Trigger a build by **calling a special URL** externally[71][74]  
+**What**: Trigger a build by **calling a special URL** externally
 **Why**: Integrate with external systems, webhooks, or scripts  
 **How It Works**:
 1. Check **"Trigger builds remotely"**
@@ -471,7 +450,7 @@ Available through plugins
 
 #### Build after other projects are built
 
-**What**: **Start this build only after another project** successfully completes[89][92]  
+**What**: **Start this build only after another project** successfully completes 
 **Why**: Create dependent jobs (build depends on another project)  
 **How It Works**:
 1. Specify project name (e.g., "ProjectA")
@@ -503,7 +482,7 @@ H 22 * * 1-5   # Run weekdays at 10 PM
 
 #### GitHub hook trigger for GITScm polling
 
-**What**: Build triggered **automatically when code is pushed to GitHub**[62][68]  
+**What**: Build triggered **automatically when code is pushed to GitHub**
 **Why**: Instant feedback - build triggers immediately on code push  
 **How It Works**:
 1. Check **"GitHub hook trigger for GITScm polling"**
@@ -524,7 +503,7 @@ H 22 * * 1-5   # Run weekdays at 10 PM
 
 #### Poll SCM
 
-**What**: Jenkins **regularly checks** the repository for changes[59]  
+**What**: Jenkins **regularly checks** the repository for changes
 **Why**: Older method (before webhooks), simpler setup, no external config  
 **How It Works**:
 1. Every X minutes, Jenkins checks: "Did code change?"
@@ -566,14 +545,14 @@ H/5 * * * *    # Check every 5 minutes
 
 #### Delete workspace before build starts
 
-**What**: **Wipe clean the workspace** (remove old files) before building[81][84]  
+**What**: **Wipe clean the workspace** (remove old files) before building
 **Why**: Ensure clean state, prevent conflicts with old files  
 **When to Use**: Most jobs should have this enabled  
 **What Gets Deleted**: All files from previous builds in workspace
 
 #### Use secret text or files
 
-**What**: Securely use **passwords, API keys, credentials** in builds[60][63][66]  
+**What**: Securely use **passwords, API keys, credentials** in builds
 **Why**: Don't expose credentials in logs or configuration  
 **How It Works**:
 1. Store credentials in Jenkins (username/password, API key, SSH key)
@@ -596,7 +575,7 @@ echo "API Key is: $MY_API_KEY"  # Shows as: API Key is: ****
 
 #### Add timestamps to console output
 
-**What**: Add **timestamps** to each line of build logs[90][93]  
+**What**: Add **timestamps** to each line of build logs
 **Why**: Know exactly when each build step ran, helps with optimization  
 **What It Shows**:
 ```
@@ -621,7 +600,7 @@ echo "API Key is: $MY_API_KEY"  # Shows as: API Key is: ****
 
 #### Terminate a build if it stuck
 
-**What**: **Automatically stop** a build if it hangs/gets stuck[91][94][97]  
+**What**: **Automatically stop** a build if it hangs/gets stuck
 **Why**: Prevent runaway builds consuming resources forever  
 **How It Works**:
 1. Set a timeout (e.g., 30 minutes)
@@ -652,7 +631,7 @@ If build has no console output for 5 minutes → ABORT
 
 ### Build Steps
 
-**What**: **What actually runs during the build** (the main work)[45][48]
+**What**: **What actually runs during the build** (the main work)
 
 #### Execute shell
 
@@ -685,7 +664,7 @@ call npm run build
 
 #### Invoke Ant
 
-**What**: Build with **Apache Ant** (Java build tool)[69][72]  
+**What**: Build with **Apache Ant** (Java build tool)
 **Configure**:
 - Ant version
 - Targets to run (e.g., `clean compile test package`)
@@ -730,11 +709,11 @@ Many other plugins add build steps:
 
 ### Post-Build Actions
 
-**What**: **Actions to perform after the build completes** (success or failure)[64]
+**What**: **Actions to perform after the build completes** (success or failure)
 
 #### Archive artifacts
 
-**What**: **Save files** from build (JAR, WAR, logs, reports)[64]  
+**What**: **Save files** from build (JAR, WAR, logs, reports)
 **Why**: Keep build outputs for download, deployment, or inspection  
 **Configure**: Specify file pattern to archive
 ```
@@ -750,7 +729,7 @@ Example: build/reports/**  # Archive test reports
 
 #### Send notifications
 
-**What**: **Notify team** of build success/failure[64]  
+**What**: **Notify team** of build success/failure  
 
 **Email Notification**:
 - Configure email recipients
@@ -819,58 +798,3 @@ Example: build/test-results/**              # Test reports
 ```
 
 ---
-
-## 🚀 Quick Reference
-
-### Easiest Path for Beginners:
-
-1. Create a **Freestyle Project**
-2. Set Source Code Management to **Git**
-3. Set Build Trigger to **GitHub hook trigger**
-4. Add Build Step: **Execute shell** with your commands
-5. Add Post-Build Action: **Archive artifacts**
-6. Save and click **Build Now**
-
-### Moving to Advanced:
-
-1. Learn **Pipeline** syntax
-2. Move to **Multibranch Pipeline** for branches
-3. Use **Organization Folder** for multiple repos
-4. Explore **Shared Libraries** for reusable code
-5. Integrate with **Kubernetes** for scaling
-
----
-
-## 🎓 Learning Tips
-
-- Start with **Freestyle Projects** - Easy to understand
-- Experiment with different **Build Triggers**
-- Try **Plugins** to extend functionality
-- Use **Blue Ocean** plugin for better pipeline visualization
-- Read Jenkins official documentation for advanced concepts
-
----
-
-## 📖 Additional Resources
-
-- **Official Jenkins Documentation**: [jenkins.io/doc](https://jenkins.io/doc)
-- **Blue Ocean Plugin**: Modern pipeline visualization
-- **Jenkins Shared Libraries**: Reuse pipeline code across jobs
-- **Community Forum**: [community.jenkins.io](https://community.jenkins.io)
-
----
-
-*Last Updated: November 2025*
-
-**Happy Building with Jenkins!** 🎉
-
----
-
-## 📝 Notes
-
-This guide covers the **most commonly used** Jenkins UI features. As you grow more comfortable, explore advanced topics like:
-- Jenkins Shared Libraries
-- Kubernetes integration
-- Advanced security configurations
-- Custom plugins development
-- Jenkins Performance Optimization
