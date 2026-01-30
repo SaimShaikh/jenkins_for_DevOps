@@ -220,7 +220,7 @@ It uses the Jenkinsfile present in each branch and supports feature branches, pu
 ## Q10. Jenkins Multi-Agent Architecture
 
 Jenkins Multi-Agent architecture uses multiple agent nodes to execute jobs while the Jenkins controller manages scheduling and coordination.
-
+Master assigns job Agent executes it Sends result back
 Benefits:
 
 * Parallel builds
@@ -322,4 +322,274 @@ Example:
 
 ---
 
+## Q18. What is Jenkins Plugins and give some Best plugins 
+
+Jenkins plugins are extensions that add extra features and integrations to Jenkins.  
+
+Trivy Plugin
+We use Trivy for container and dependency security scanning.
+It scans Docker images and file systems for vulnerabilities before deployment. If critical vulnerabilities are found, the Jenkins pipeline can fail.
+
+OWASP (Dependency-Check) Plugin
+This plugin is used to identify vulnerable libraries in the application.
+It checks dependencies against known OWASP vulnerabilities and helps prevent security risks early in the CI/CD pipeline.
+
+Git Plugin
+The Git plugin allows Jenkins to pull source code from Git repositories like GitHub or GitLab.
+It also helps trigger builds automatically when code is pushed.
+
+Slack Plugin
+Slack plugin is used for real-time build notifications.
+It sends alerts to Slack channels when a build starts, succeeds, or fails, helping teams respond quickly.
+
+Build Monitor Plugin
+Build Monitor provides a dashboard view of Jenkins jobs.
+It helps teams quickly see which builds are running, successful, or failing on a single screen.
+
+Build Failure Analyzer Plugin
+This plugin helps analyze build failures automatically.
+It detects common error patterns in logs and gives hints about why the build failed, reducing troubleshooting time.
+
+Credentials Plugin
+The Credentials plugin securely stores secrets like passwords, tokens, SSH keys, and certificates.
+These credentials are injected into pipelines securely without hardcoding sensitive data.
+
+Docker Plugin
+Docker plugin allows Jenkins to build Docker images and run jobs inside containers.
+It helps maintain consistent build environments and supports container-based CI/CD workflows.
+
+SonarQube Plugin
+SonarQube plugin is used for code quality and security analysis.
+It checks for bugs, vulnerabilities, code smells, and enforces quality gates. If the quality gate fails, the Jenkins pipeline is stopped. 
+
+---
+
+## Q19. How do you secure Jenkins?
+To secure Jenkins, I focus on access control, credentials management, and network security.
+First, I enable authentication and authorization using Jenkins’ security settings, usually role-based access control, so users only get the permissions they need.
+I store all secrets like passwords, tokens, and SSH keys in the Jenkins Credentials Manager instead of hardcoding them in pipelines.
+I also restrict script approvals, limit plugin usage to trusted ones, and keep Jenkins and plugins updated to avoid known vulnerabilities.
+On the infrastructure side, I run Jenkins behind HTTPS, restrict access using firewall or security groups, and use agents so the controller is not overloaded.
+In production, Jenkins is usually backed up regularly and deployed with persistent storage or Kubernetes for better reliability and security.
+
+---
+
+## Q20. What is Jenkins Job DSL?
+Job DSL (Domain-Specific Language) allows us to create and manage Jenkins jobs programmatically using Groovy instead of manual UI configuration.
+
+---
+
+## Q21. Explain Jenkins build Triggers and how they work?
+Jenkins build triggers decide when a Jenkins job should start automatically.
+Instead of running jobs manually, triggers allow Jenkins to start builds based on specific events like code changes, time schedules, or external requests.
+When a trigger condition is met, Jenkins places the job in the build queue and executes it on an available agent.
+
+The most common Jenkins build triggers are:
+
+SCM Trigger (Polling or Webhook):
+Jenkins monitors the source code repository. When new code is pushed, the build is triggered automatically. Webhooks are preferred because they are faster and more efficient than polling.
+
+Scheduled Trigger (CRON):
+Jobs are triggered at fixed times using CRON syntax, for example nightly builds or periodic scans.
+
+Manual Trigger:
+A user manually starts the job from the Jenkins UI. This is mostly used for testing or emergency runs.
+
+Upstream/Downstream Trigger:
+One job triggers another job after it completes successfully, which helps create chained or dependent pipelines.
+
+Remote Trigger:
+Jenkins jobs can be triggered externally using REST APIs, curl commands, or scripts.
+
+---
+
+## Q22. How do you automate deployments using Jenkins?
+We automate deployments in Jenkins by adding a deployment stage in the Jenkins pipeline.
+The pipeline first pulls the code, builds it, and runs tests. If all tests pass, Jenkins moves to the deployment stage.
+In the deployment stage, Jenkins uses tools like Ansible, Docker, or Kubernetes to deploy the application to staging or production.
+The deployment is fully automated and usually triggered by a Git webhook after a successful build.
+In production setups, deployments are often controlled using approvals, environment-specific configurations, and quality gates like SonarQube to make sure only stable code is deployed.
+
+---
+
+## Q23. What are Jenkins build artifacts and how are they used?
+Jenkins build artifacts are the output files generated after a build.
+These can be things like JAR or WAR files, Docker images, ZIP packages, or test reports.
+Once a build is successful, Jenkins stores these artifacts so they can be used later for deployment, testing, rollback, or auditing.
+Artifacts give us a fixed snapshot of what was built, which ensures the same exact version is deployed across different environments like QA, staging, and production.
+
+---
+
+## Q24. How do you troubleshoot Jenkins build failures?
+Troubleshooting Jenkins build failures means identifying why the build failed and fixing the root cause.
+Failures can happen due to code issues, missing dependencies, environment problems, or incorrect configuration.
+
+My approach is:
+
+Check Console Output
+The first thing I look at is the Jenkins console output, because build logs usually clearly show the error.
+
+Reproduce Locally
+I run the same build command on my local machine to check whether the issue is related to Jenkins or the code itself.
+
+Verify Build Environment
+I ensure required tools like Java, Maven, Node.js, or Docker are properly installed and correctly configured on the Jenkins agent.
+
+Check Dependencies and Configuration
+Missing libraries, wrong versions, incorrect environment variables, or credentials issues are common causes of failures.
+
+---
+
+## Q25 Explain the concept of Jenkins pipeline stages 
+Jenkins pipeline stages are used to divide the CI/CD pipeline into logical steps.
+Each stage represents a specific phase of the process, such as build, test, scan, or deploy.
+
+---
+
+
+## Q26 What is the role of the workspace directory in Jenkins?
+The workspace in Jenkins is the folder where Jenkins keeps your project files while running a job.
+Jenkins downloads the code into this folder and uses it to build, test, and deploy the application.
+
+---
+
+## Q27. How do you manage credentials securely in Jenkins?
+Jenkins manages credentials securely by storing them in the Credentials Manager and injecting them into jobs without hardcoding secrets.
+
+## Q28. How you can trigger a Jenkins job externally? 
+A Jenkins job can be triggered externally by using webhooks or Jenkins APIs.
+Most commonly, we use a Git webhook, where a code push event automatically triggers the Jenkins job.
+Jenkins also provides a REST API, which allows jobs to be triggered using tools like curl or scripts.
+This helps integrate Jenkins with other systems and automate CI/CD without manual intervention.
+
+## Q29 How does Jenkins support distributed bills?
+Jenkins supports distributed builds by using multiple agent machines.
+The main Jenkins server (controller) does not run all jobs by itself. Instead, it sends jobs to different agents.
+Each agent runs the build on its own machine and sends the result back to Jenkins.
+This allows multiple jobs to run at the same time, reduces load on the main server, and makes builds faster.
+
+## Q30. How can you implement parallel execution in Jenkins pipeline?
+Jenkins allows parallel execution by running multiple stages at the same time in a pipeline.
+Instead of waiting for one task to finish before starting another, Jenkins can execute them simultaneously.
+This is done using the  **parallel option** in the Jenkins pipeline.
+Parallel execution is mostly used for running tests, builds, or checks together to save time.
+Jenkins runs these parallel tasks on available agents.
+
+## Q31. Parallel vs Sequential Execution in Jenkins
+Sequential Execution
+
+In sequential execution, Jenkins runs tasks one after another.
+The next stage starts only when the previous stage finishes.
+This is simple and safe, but it can take more time.
+
+Parallel Execution
+
+In parallel execution, Jenkins runs multiple tasks at the same time.
+This helps save time, especially when tasks are independent of each other.
+
+## Q32. How Jenkins handles parallel logs
+
+When Jenkins runs tasks in parallel, it maintains separate logs for each parallel stage.
+Each parallel branch has its own console output, so logs do not mix or overwrite each other.
+In the Jenkins UI, you can expand each parallel stage to see its individual logs.
+This makes it easy to identify which parallel task failed and why.
+
+## Q33. What is the difference between freestyle and pipeline jobs in Jenkins?
+
+Freestyle jobs are UI-based and suitable for simple tasks, while pipeline jobs are code-based and used for complex, scalable CI/CD workflows.
+
+---
+
+## Q34. Describe the use of environment variables in Jenkins an types
+Environment variables in Jenkins are used to store and pass values that are needed during a build or pipeline execution.
+They help avoid hardcoding values like environment names, paths, URLs, and credentials.
+
+Types of Environment Variables in Jenkins
+1. Built-in Jenkins Environment Variables
+
+Provided automatically by Jenkins.
+
+Examples:
+
+BUILD_NUMBER – build number
+
+JOB_NAME – job name
+
+WORKSPACE – workspace path
+
+BUILD_ID – build ID
+
+Use:
+To get job and build information inside pipelines.
+
+2. User-Defined Environment Variables
+
+Variables created by users.
+
+Where defined:
+
+Jenkins job configuration
+
+Jenkinsfile (environment block)
+
+Examples:
+
+ENV=prod
+
+APP_VERSION=1.0
+
+Use:
+To control build behavior across environments.
+
+3. System Environment Variables
+
+Defined at OS or server level.
+
+Examples:
+
+JAVA_HOME
+
+PATH
+
+Use:
+To locate system tools and binaries.
+
+4. Credential-Based Environment Variables
+
+Secrets injected securely from Jenkins Credentials Manager.
+
+Examples:
+
+API tokens
+
+Passwords
+
+SSH keys
+
+Use:
+To access Git, servers, cloud, or external tools securely.
+
+---
+
+## Q35. How does Jenkins integrate with version control systems?
+Jenkins integrates with version control systems like Git, GitHub, GitLab, and Bitbucket using plugins.
+It connects to the repository and pulls the latest code whenever there is a change.
+
+
+---
+
+## Q36. What is the Blue Ocean in Jenkins?
+Blue Ocean is a modern user interface for Jenkins that makes working with pipelines easier.
+It provides a visual view of CI/CD pipelines, showing stages, steps, and their status clearly.
+
+---
+## Q37. How do you handle build environment differences? 
+Build environment differences are handled by keeping environments consistent across development, testing, and production.
+We avoid hardcoding environment-specific values and instead use environment variables and configuration files.
+In most projects, we use Docker so the same build environment runs everywhere.
+
+---
+
+## Q39. Explain the build queue
+When jobs are triggered in Jenkins, they don't always run immediately. If all executors workers on agents are busy,the jobs wait in a build queue until resources are available.
 
