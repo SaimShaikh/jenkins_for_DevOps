@@ -725,3 +725,40 @@ Secure secrets using the Jenkins credentials store.
 Handle errors gracefully using post actions.
 
 ---
+
+## Q49 How do you implement Continuous Deployment (CD) with Jenkins? Describe the stages involved in a typical CD pipeline.
+
+How do you implement Continuous Deployment (CD) with Jenkins?
+
+Continuous Deployment with Jenkins means every successful code change is automatically deployed to production without manual approval.
+Jenkins does this by using a pipeline that runs step by step, and if all stages pass, the application is deployed automatically.
+
+Typical stages in a Continuous Deployment pipeline
+
+- Code Checkout
+
+Jenkins pulls the latest code from the version control system like Git.
+
+- Build
+
+The application is compiled or packaged (for example, using Maven or Gradle).
+
+- Unit Testing
+
+Basic tests are run to ensure the code works correctly.
+
+- Code Quality / Security Check
+
+Tools like SonarQube or security scanners are used to check code quality and vulnerabilities.
+
+- Artifact Creation
+
+A build artifact or Docker image is created and versioned.
+
+- Deployment
+
+Jenkins deploys the application automatically to the target environment (VMs, Docker, or Kubernetes).
+
+- Post-Deployment Verification
+
+Health checks or smoke tests are run to confirm the deployment was successful.
