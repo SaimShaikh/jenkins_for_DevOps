@@ -1174,5 +1174,15 @@ Configure Jenkins to notify immediately on failures so the team can act fast.
 
 ---
 
+## Q69. How do you confirm that the built artifact is good?
+I confirm a built artifact is good by validating it through the CI/CD pipeline.
+First, I make sure the build completes successfully.
+Then I verify that all automated tests and code quality checks pass.
+After that, the artifact is versioned and scanned for security issues.
+Finally, I deploy it to a test or staging environment and run basic health or smoke tests.
+Only artifacts that pass all these checks are considered stable and ready for production.
+
+---
+
 
 
