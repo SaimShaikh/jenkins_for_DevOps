@@ -616,8 +616,7 @@ Jenkins rollback is done by redeploying a previous stable version using artifact
 
 ---
 ## Q41. What is the use of the post section in declarative pipelines?
-The post section in a Jenkins declarative pipeline is used to run actions after a stage or the entire pipeline finishes.
-These actions run based on the result of the build, like **success or failure.**
+The post section is used to run actions after the pipeline completes, based on the build result. like **success or failure.**
 It is commonly used for sending notifications, cleaning the workspace, or generating reports.
 The post section ensures important tasks are executed even if the pipeline fails.
 
