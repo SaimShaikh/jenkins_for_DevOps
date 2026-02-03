@@ -592,6 +592,7 @@ It provides a visual view of CI/CD pipelines, showing stages, steps, and their s
 
 ---
 ## Q37. How do you handle build environment differences? 
+Environment differences mean the differences between places where your application runs.
 Build environment differences are handled by keeping environments consistent across development, testing, and production.
 We avoid hardcoding environment-specific values and instead use environment variables and configuration files.
 In most projects, we use Docker so the same build environment runs everywhere.
