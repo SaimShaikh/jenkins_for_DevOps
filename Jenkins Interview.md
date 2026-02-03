@@ -9,9 +9,17 @@ It helps automate repetitive tasks, detect bugs early, speed up software deliver
 
 ## Q2. Jenkins vs GitHub Actions
 
-Jenkins is a self-hosted CI/CD tool that provides high flexibility and customization, while GitHub Actions is a GitHub-native CI/CD service that is easy to set up and tightly integrated with GitHub repositories.
+Jenkins
 
-Jenkins is commonly used in enterprise environments, whereas GitHub Actions is preferred for simpler, GitHub-centric workflows.
+Jenkins is a self-hosted CI/CD tool that gives full control and high flexibility.
+It supports a wide range of plugins and works well with complex, enterprise-level workflows.
+However, Jenkins requires more setup, maintenance, and infrastructure management.
+
+GitHub Actions
+
+GitHub Actions is a GitHub-native CI/CD service that is easy to set up and use.
+It integrates directly with GitHub repositories and requires minimal maintenance.
+It’s best suited for simple to medium workflows, especially when the code is already on GitHub.
 
 ---
 
