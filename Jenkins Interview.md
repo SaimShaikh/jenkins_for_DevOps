@@ -240,7 +240,7 @@ In modern setups, agents are dynamically created using Docker or Kubernetes.
 
 ---
 
-## Q11. What is a Build Artifact?
+## Q11. What is JNLP and why is it used in Jenkins ?
 
 A build artifact in Jenkins is the output generated after a build process, such as:
 
@@ -254,9 +254,11 @@ Artifacts ensure consistency across environments and are used for deployment.
 
 ## Q12. What is a Build Pipeline?
 
-A build pipeline is an automated sequence of steps that takes source code, builds it, runs tests, and produces a deployable artifact.
+JNLP (Java Network Launch Protocol) in Jenkins is used to connect Jenkins agents to the Jenkins controller so that the agents can execute build jobs.
 
-It reduces manual errors and speeds up software delivery in DevOps workflows.
+In this method, the agent machine initiates the connection to the Jenkins controller using a Java process (agent.jar). This is useful when Jenkins cannot directly access the machine through SSH, such as when the agent is behind a firewall or running in dynamic environments like Docker or Kubernetes.
+
+Once the connection is established, Jenkins assigns build or deployment tasks to that agent.
 
 ---
 
