@@ -242,17 +242,13 @@ In modern setups, agents are dynamically created using Docker or Kubernetes.
 
 ## Q11. What is JNLP and why is it used in Jenkins ?
 
-JNLP in Jenkins is used to connect agents to the Jenkins controller in an inbound way, where the agent initiates the connection instead of the controller. It is mainly used in scenarios where the agent is behind a firewall, NAT, or in restricted environments where SSH-based communication is not possible.
+JNLP (Java Network Launch Protocol) in Jenkins is used to connect agents to the Jenkins controller in an inbound way, where the agent initiates the connection instead of the controller. It is mainly used in scenarios where the agent is behind a firewall, NAT, or in restricted environments where SSH-based communication is not possible.
 
 ---
 
 ## Q12. What is a Build Pipeline?
 
-JNLP (Java Network Launch Protocol) in Jenkins is used to connect Jenkins agents to the Jenkins controller so that the agents can execute build jobs.
-
-In this method, the agent machine initiates the connection to the Jenkins controller using a Java process (agent.jar). This is useful when Jenkins cannot directly access the machine through SSH, such as when the agent is behind a firewall or running in dynamic environments like Docker or Kubernetes.
-
-Once the connection is established, Jenkins assigns build or deployment tasks to that agent.
+A build pipeline is an automated sequence of steps that includes code checkout, build, testing, and deployment. It helps in delivering applications faster and reliably by eliminating manual intervention and ensuring consistency across environments.
 
 ---
 
