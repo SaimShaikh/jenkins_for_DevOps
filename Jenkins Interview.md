@@ -7,7 +7,7 @@ It helps automate repetitive tasks, detect bugs early, speed up software deliver
 
 ---
 
-## Q2. Jenkins vs GitHub Actions
+## Q2. Jenkins vs GitHub Actions 
 
 Jenkins
 
