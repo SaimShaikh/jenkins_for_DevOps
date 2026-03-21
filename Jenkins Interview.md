@@ -242,13 +242,7 @@ In modern setups, agents are dynamically created using Docker or Kubernetes.
 
 ## Q11. What is JNLP and why is it used in Jenkins ?
 
-A build artifact in Jenkins is the output generated after a build process, such as:
-
-* JAR file
-* Docker image
-* Packaged application
-
-Artifacts ensure consistency across environments and are used for deployment.
+JNLP in Jenkins is used to connect agents to the Jenkins controller in an inbound way, where the agent initiates the connection instead of the controller. It is mainly used in scenarios where the agent is behind a firewall, NAT, or in restricted environments where SSH-based communication is not possible.
 
 ---
 
